@@ -6,13 +6,44 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
     <title>字蛛（FontSpider）</title>
-    <link href="style.css" rel="stylesheet" media="screen" />
 </head>
 
 <body>
-    <p>我是中国人</p>
-    <h3>我是中国人</h3>
-    <h1>我是中国人</h1>
+    <div>
+      <p>我是中国人</p>
+      <h3>我是中国人</h3>
+      <h1>我是中国人</h1>
+    </div>
 </body>
+
+<style>
+@font-face {
+  font-family: 'Microsoft Yahei';
+  src: url('./font/my-font.eot');
+  src: url('./font/my-font.eot?#font-spider') format('embedded-opentype'), url('./font/my-font.woff') format('woff'), url('./font/my-font.ttf') format('truetype'), url('./font/my-font.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+div {
+  font-family: 'Microsoft Yahei';
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var div = document.querySelector('div');
+    var body = document.querySelector('body');
+
+    var info = document.createElement('p');
+
+    function css( element, property ) {
+      return window.getComputedStyle( element, null ).getPropertyValue( property );
+    }
+
+    info.innerText = '实际渲染字体：' +  css(div, 'font-family')  + '\n' + '系统默认渲染字体：' + css(body, 'font-family')
+    div.appendChild(info)
+  }, false);
+</script>
 
 </html>
