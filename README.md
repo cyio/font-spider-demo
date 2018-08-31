@@ -1,9 +1,11 @@
+# 输出指定文字的网络字体文件
+
 由于字姝的一些限制，如不支持 CSS 预处理，故建立此项目单独处理字体。
 
 ## 步骤
 1. clone 本项目`git clone https://github.com/cyio/font-spider-demo.git`
 2. 安装依赖`npm install`，或全局安装 font-spider `npm install font-spider -g`
-3. 将`ttf`字体文件放入`font`文件夹
+3. 将`ttf`字体文件放入`font`文件夹（生成后将被替换，原文件备份到`./font/.font-spider`）
 4. 把目标文字写入 html 文件中
 5. 运行命令`npx font-spider *.html`
 6. 在本机或局域网中查看效果`npx serve ./`
